@@ -1,0 +1,41 @@
+ORGANIZATION_BLOCK Ö÷³ÌÐò:OB1
+TITLE=³ÌÐò×¢ÊÍ
+BEGIN
+Network 1 // ÍøÂç±êÌâ
+// ÍøÂç×¢ÊÍ
+LD     SM0.1
+MOVB   0, AC0
+ATCH   INT0, 0
+ATCH   INT0, 1
+ENI
+Network 2 
+LDN    M0.0
+AB>=   16#EF, AC0
+A      SM0.5
+EU
+INCW   AC0
+Network 3 
+LD     M0.0
+AB<=   16#1, AC0
+A      SM0.5
+EU
+DECW   AC0
+Network 4 
+LD     SM0.0
+S      M0.0, 1
+Network 5 
+LD     SM0.0
+R      M0.0, 1
+END_ORGANIZATION_BLOCK
+SUBROUTINE_BLOCK SBR_0:SBR0
+TITLE=×Ó³ÌÐò×¢ÊÍ
+BEGIN
+Network 1 // ÍøÂç±êÌâ
+// ÍøÂç×¢ÊÍ
+END_SUBROUTINE_BLOCK
+INTERRUPT_BLOCK INT_0:INT0
+TITLE=ÖÐ¶Ï³ÌÐò×¢ÊÍ
+BEGIN
+Network 1 // ÍøÂç±êÌâ
+// ÍøÂç×¢ÊÍ
+END_INTERRUPT_BLOCK
