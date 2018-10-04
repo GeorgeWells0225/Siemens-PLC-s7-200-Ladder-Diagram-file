@@ -1,0 +1,43 @@
+SUBROUTINE_BLOCK SBR_0:SBR0
+TITLE=³ÌÐò×¢ÊÍ
+BEGIN
+Network 1 
+LD     SM0.1
+MOVR   0.7, VD104
+MOVR   0.25, VD112
+MOVR   0.1, VD116
+MOVR   30.0, VD120
+MOVR   0.0, VD124
+MOVB   100, SMB34
+ATCH   INT0, 10
+Network 2 
+LD     SM0.0
+ITD    AIW0, AC0
+DTR    AC0, AC0
+/R     32000.0, AC0
+MOVR   AC0, VD100
+Network 3 
+Network 4 
+Network 5 
+Network 6 
+Network 7 
+Network 8 
+Network 9 
+Network 10 
+Network 11 
+Network 12 
+Network 13 
+Network 14 
+Network 15 
+Network 16 
+Network 17 
+Network 18 
+Network 19 
+Network 20 
+Network 21 
+Network 22 
+Network 23 
+Network 24 
+Network 25 // ÍøÂç±êÌâ
+// ÍøÂç×¢ÊÍ
+END_SUBROUTINE_BLOCK
