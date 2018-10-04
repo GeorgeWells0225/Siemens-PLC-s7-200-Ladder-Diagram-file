@@ -1,0 +1,43 @@
+ORGANIZATION_BLOCK 主程序:OB1
+TITLE=程序注释
+BEGIN
+Network 1 // 网络标题
+// 网络注释
+LD     SM0.1
+CALL   SBR0
+Network 2 
+LD     SM0.0
+MOVB   0, VB8
+MOVD   +0, VD0
+MOVB   16#F8, SMB37
+HDEF   0, 0
+MOVD   +0, SMD38
+HSC    0
+MOVB   50, SMB34
+ATCH   INT0, 10
+ENI
+Network 3 
+LD     SM0.0
++D     HC0, VD0
+INCB   VB8
+HSC    0
+Network 4 
+LDB=   VB8, 32
+/D     +32, VD0
+*D     100, VD4
+DTI    VD4, VW100
+MOVB   0, VB8
+MOVD   +0, VD0
+END_ORGANIZATION_BLOCK
+SUBROUTINE_BLOCK SBR_0:SBR0
+TITLE=子程序注释
+BEGIN
+Network 1 // 网络标题
+// 网络注释
+END_SUBROUTINE_BLOCK
+INTERRUPT_BLOCK INT_0:INT0
+TITLE=中断程序注释
+BEGIN
+Network 1 // 网络标题
+// 网络注释
+END_INTERRUPT_BLOCK
