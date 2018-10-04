@@ -1,0 +1,92 @@
+ORGANIZATION_BLOCK 主程序:OB1
+TITLE=程序注释
+BEGIN
+Network 1 // 网络标题
+// 主轴运转与瞬时点动
+LD     I0.0
+O      Q0.0
+AN     I0.1
+AN     I0.3
+A      I0.4
+O      I0.3
+=      Q0.0
+Network 2 
+// 主轴制动与换刀制动
+LD     I0.1
+O      I1.1
+=      Q0.4
+Network 3 
+// 进给电动机运转
+LD     I0.2
+=      Q0.1
+Network 4 
+LD     Q0.0
+O      Q0.1
+A      I1.5
+=      M0.1
+Network 5 
+// 向左、前、下或圆工作台进给
+LDN    I0.4
+AN     I0.5
+AN     I0.6
+A      I1.3
+A      I0.7
+LD     I1.3
+AN     I0.7
+AN     I1.0
+A      I0.5
+OLD
+LD     I1.3
+A      I0.4
+AN     I0.5
+AN     I0.6
+AN     I1.0
+AN     I0.7
+OLD
+LDN    I0.4
+AN     I0.5
+AN     I0.6
+AN     I0.7
+AN     I1.0
+A      I1.2
+OLD
+A      M0.1
+AN     Q0.3
+=      Q0.2
+Network 6 
+// 向右、后、上进给
+LDN    I0.4
+AN     I0.5
+AN     I0.6
+A      I1.3
+A      I1.0
+LD     I1.3
+AN     I0.7
+AN     I1.0
+A      I0.6
+OLD
+A      M0.1
+AN     Q0.2
+=      Q0.3
+Network 7 
+// 工作台工进Q0.5与快进Q0.6
+LD     M0.1
+LPS
+AN     Q0.1
+=      Q0.5
+LPP
+A      Q0.1
+=      Q0.6
+END_ORGANIZATION_BLOCK
+SUBROUTINE_BLOCK SBR_0:SBR0
+TITLE=子程序注释
+BEGIN
+Network 1 // 网络标题
+// 网络注释
+END_SUBROUTINE_BLOCK
+INTERRUPT_BLOCK INT_0:INT0
+TITLE=中断程序注释
+BEGIN
+Network 1 // 网络标题
+// 网络注释
+END_INTERRUPT_BLOCK
