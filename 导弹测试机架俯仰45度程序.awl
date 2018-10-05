@@ -1,0 +1,96 @@
+ORGANIZATION_BLOCK 主程序:OB1
+TITLE=程序注释
+BEGIN
+Network 1 // 网络标题
+// 主程序开始并设定初始值
+LD     SM0.1
+MOVW   500, SMW168
+MOVW   3, VW500
+MOVW   2000, VW501
+MOVW   -2, VW503
+MOVW   900, VW505
+MOVW   200, VW509
+MOVW   0, VW517
+MOVD   168700, VD513
+MOVW   200, VW517
+MOVW   2, VW519
+MOVD   900, VD521
+ATCH   INT0, 19
+Network 2 
+// 设置转动正方向和指示灯置位
+LD     I0.0
+S      Q0.1, 1
+S      M0.4, 1
+Network 3 
+// 设置转动反方向和指示灯置位
+LD     I0.1
+R      Q0.1, 1
+S      M0.5, 1
+Network 4 
+// 连锁
+LD     I0.0
+O      I0.1
+=      M0.2
+Network 5 
+// 解除连锁
+LDN    I0.0
+AN     I0.1
+AN     I0.2
+R      M0.2, 1
+Network 6 
+// 上升
+LD     M0.0
+EU
+AN     M0.2
+AN     M0.1
+MOVB   16#A0, SMB67
+PLS    0
+S      M0.1, 1
+Network 7 
+// 上升指示灯
+LD     M0.4
+=      Q0.2
+Network 8 
+// 下降
+LD     I0.1
+EU
+AN     M0.2
+AN     M0.1
+MOVB   16#A0, SMB67
+PLS    0
+S      M0.1, 1
+Network 9 
+// 下降指示灯
+LD     M0.5
+=      Q0.3
+Network 10 
+// 停止电动机
+LD     I0.2
+EU
+A      M0.1
+R      M0.1, 1
+MOVB   16#25, SMB67
+PLS    0
+R      M0.4, 1
+R      M0.5, 1
+Network 11 
+// 主程序结束
+Network 12 
+// 中断程序
+LD     SM0.0
+R      M0.1, 1
+R      M0.4, 1
+R      M0.5, 1
+END_ORGANIZATION_BLOCK
+SUBROUTINE_BLOCK SBR_0:SBR0
+TITLE=子程序注释
+BEGIN
+Network 1 // 网络标题
+// 网络注释
+END_SUBROUTINE_BLOCK
+INTERRUPT_BLOCK INT_0:INT0
+TITLE=中断程序注释
+BEGIN
+Network 1 // 网络标题
+// 网络注释
+END_INTERRUPT_BLOCK
